@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApexTrade | Enterprise HFT Engine</title>
+    <meta name="description" content="High-Frequency Trading Matching Engine Dashboard">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Efectos visuales de fondo (Glassmorphism) -->
+    <div class="bg-glow bg-glow-blue"></div>
+    <div class="bg-glow bg-glow-purple"></div>
+    
+    <div class="app-container">
+        <!-- Navegación Superior -->
+        <header class="topbar">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><polygon points="12 2 2 22 22 22"></polygon></svg>
+                </div>
+                <h1 class="logo-text">ApexTrade <span class="badge-pro">PRO</span></h1>
+            </div>
+            <div class="system-status">
+                <div class="status-pill active">
+                    <span class="pulse-dot"></span>
+                    <span id="ws-status">Conectando...</span>
+                </div>
+                <div class="latency-pill">
+                    <span id="latency-val">< 1ms C++ Core</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Cuadro de Mando Principal -->
+        <main class="dashboard-grid">
+            
+            <!-- Panel Izquierdo: Libro de Órdenes (Order Book) -->
+            <section class="glass-panel orderbook-panel">
+                <div class="panel-header">
+                    <h2>Libro de Órdenes (L2)</h2>
+                    <span class="pair-tag">BTC / USD</span>
+                </div>
+                
+                <div class="orderbook-table">
+                    <div class="ob-header">
+                        <span>Precio</span>
+                        <span>Cantidad</span>
+                        <span>Total</span>
+                    </div>
+                    
+                    <!-- Ofertas de Venta (Asks) -->
+                    <div class="ob-asks" id="asks-container">
+                        <div class="placeholder-text">Cargando libro...</div>
+                    </div>
+                    
+                    <!-- Indicador de Spread en Medio -->
+                    <div class="ob-spread">
+                        <span id="current-market-price" class="market-price">--.--</span>
+                        <span id="spread-value" class="spread-indicator">Spread: --</span>
+                    </div>
+                    
+                    <!-- Ofertas de Compra (Bids) -->
+                    <div class="ob-bids" id="bids-container">
+                        <!-- Contenido dinámico -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Panel Central/Derecho: Trades y Métricas -->
+            <div class="side-panels">
+                
+                <!-- Métricas de Alto Rendimiento -->
+                <section class="glass-panel metrics-panel">
+                    <div class="panel-header">
+                        <h2>Métricas del Motor C++</h2>
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric-box">
+                            <span class="metric-title">Volumen Operado</span>
+                            <span class="metric-data" id="total-vol">0</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="metric-title">Trades Exitosos</span>
+                            <span class="metric-data" id="total-trades">0</span>
+                        </div>
+                        <div class="metric-box highlight">
+                            <span class="metric-title">Algoritmo</span>
+                            <span class="metric-data">O(1)</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Historial de Trades en Tiempo Real -->
+                <section class="glass-panel trades-panel">
+                    <div class="panel-header">
+                        <h2>Últimos Trades</h2>
+                        <span class="live-tag">LIVE</span>
+                    </div>
+                    <div class="trades-table">
+                        <div class="tr-header">
+                            <span>Hora</span>
+                            <span>Precio</span>
+                            <span>Cant.</span>
+                        </div>
+                        <div class="tr-body" id="trades-container">
+                            <!-- Contenido dinámico -->
+                        </div>
+                    </div>
+                </section>
+                
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+# C++ Build artifacts
+build/
+*.exe
+*.o
+*.obj
+*.ilk
+*.pdb
+*.exp
+*.lib
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.user
